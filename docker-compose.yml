@@ -30,3 +30,16 @@ services:
       - ./web89/html:/var/www/html
     ports:
       - 89:80
+  minetest:
+    image: lscr.io/linuxserver/minetest:latest
+    container_name: ${PROJECT_NAME}minetest
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - CLI_ARGS=--gameid minetest --port 25565
+    volumes:
+      - ./minetest/.minetest:/config/.minetest
+    ports:
+      - 25565:25565/udp
+    restart: unless-stopped
