@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    volumes:
+      - ./pgadmin/html:/var/lib/pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: Ruben.gay@etu.umontpellier.fr
+      PGADMIN_DEFAULT_PASSWORD: tp12023
+    ports:
+      - 8182:80
+  postgres:
+    image: postgres
+    container_name: postgres
+    volumes:
+      - ./postgres/data:/var/lib/postgresql/data
+    ports:
+      - 8181:5432
+    environment:
+      POSTGRES_PASSWORD: tp12023
+      POSTGRES_USER: postgres
+      POSTGRES_DB: Ruben
+    depends_on:
+      - pgadmin
+  web89:
+    image: php:8.2-apache
+    container_name: web89
+    volumes:
+      - ./web89/html:/var/www/html
+    ports:
+      - 89:80
