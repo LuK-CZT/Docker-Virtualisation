@@ -20,14 +20,14 @@ services:
       MYSQL_ROOT_PASSWORD: admin
 
   apache:
-    image: httpd:latest
+    image: "php:8.2-apache"
     restart: always
+    volumes:
+      - ./apache/html:/var/www/html
     depends_on:
       - phpmyadmin
     ports:
-      - "80:80"
-    volumes:
-      - ./html:/usr/local/apache2/htdocs/
+      - "8185:80"
 
   minetest:
     image: lscr.io/linuxserver/minetest:latest
