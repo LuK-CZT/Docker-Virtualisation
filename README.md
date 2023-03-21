@@ -4,7 +4,10 @@ _Ce guide explique comment lancer un fichier `docker-compose.yml` qui définit l
 Avant de pouvoir lancer un fichier docker-compose.yml, vous devez avoir installé Docker et Docker Compose sur votre machine.
 
 Docker: https://docs.docker.com/get-docker/
+
 Docker Compose: https://docs.docker.com/compose/install/
+
+Ensuite, cloner le repository github.
 
 ## Étapes pour lancer un fichier docker-compose.yml
 
